@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 구글에 maven regi. 검색 -> 검색창에 ojdbc 10 검색. -> 오라클 10클릭 -> 맨밑에 19.3x 클릭
+	Maven 코드 복사 -> <dependencie> 밑에 붙여넣기 -> 현재 창 오른쪽 마우스클릭 -> maven -> update
+	project. -->
+	<!-- plugin 오류 
+	우클릭 -> Rus as -> install , 우클릭 -> Run as -> clean , 다시 maven -> update project. -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.yedam</groupId>
+	<artifactId>BoardWeb</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<release>21</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<!-- 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+</project>
