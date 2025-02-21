@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.dao.BoardDAO;
 import com.yedam.vo.BoardVO;
@@ -15,13 +16,27 @@ public class ModifyControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 수정화면 open.
 		String bno = req.getParameter("bno");
-
+		System.out.println(bno);
 		BoardDAO bdao = new BoardDAO();
-		BoardVO board = bdao.getBoard(Integer.parseInt(bno)); // 문자열 "14" -> int 14로 변경하려고 선언.
-		
+		BoardVO board = bdao.getBoard(Integer.parseInt(bno)); // 문자열 "14" -> int 14 변경.
+
+		// 세션아이디 vs. 글작성 아이디 .
+		HttpSession session = req.getSession();
+		String sessionId = (String) session.getAttribute("loginId");
+		System.out.println(sessionId);
+		String writerId = board.getWriter();
+
+		if (!sessionId.equals(writerId)) {
+			req.setAttribute("msg", "권한을 확인하세요.");
+			req.setAttribute("board", board);
+			req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+			return;
+		}
+
 		// 요청정보의 attribute활용.
 		req.setAttribute("board", board); //
-		req.getRequestDispatcher("WEB-INF/views/modifyBoard.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/modifyBoard.jsp").forward(req, resp);
+
 	}
 
 }
