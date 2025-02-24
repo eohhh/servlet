@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  <definition name="myapp.homepage" template="/layouts/classic.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="header" value="/tiles/banner.jsp" />
+    <put-attribute name="menu" value="/tiles/common_menu.jsp" />
+    <put-attribute name="body" value="/tiles/home_body.jsp" />
+    <put-attribute name="footer" value="/tiles/credits.jsp" />
+  </definition>
+  
+  <!-- board 적용. -->
+  <definition name="myapp.user" template="/WEB-INF/layout/template.jsp">
+    <put-attribute name="title" value="일반사용자 템플릿" />
+    <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+    <put-attribute name="body" value="/WEB-INF/layout/body.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+  </definition>
+  
+<!-- 관리자용 -->
+  <definition name="myapp.admin" template="/WEB-INF/admin/template.jsp">
+    <put-attribute name="title" value="관리자 템플릿" />
+    <put-attribute name="header" value="/WEB-INF/admin/header.jsp" />
+    <put-attribute name="body" value="/WEB-INF/admin/body.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/admin/footer.jsp" />
+  </definition>
+  
+    <!-- WILDCARD => 경로상에 경로의 값을 읽어와서 layout 폴더(value에 있는 장소) 밑에서 해당하는 파일을 불러와서 body영역에 출력해주는 역할. -->
+  <definition name="WILDCARD:body/*" extends="myapp.user"> <!-- extends를 써서 body부분만 바꿔준다. -->
+   <put-attribute name="body" value="/WEB-INF/layout/{1}.jsp" /> <!-- WILDCARD => layout/{1}.jsp에 있는 1을 불러온다. (layout 밑에 있는 {1}의 페이지를 보여줌.)-->
+  </definition>
+  
+  <definition name="WILDCARD:board/*" extends="myapp.user"> 
+   <put-attribute name="body" value="/WEB-INF/views/board/{1}.jsp" />
+  </definition>
+  
+  <!-- 관리자용. -->
+  <definition name="WILDCARD:admin/*" extends="myapp.admin"> 
+   <put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
+  </definition>
+
+  <definition name="WILDCARD:*/*" extends="myapp.user"> <!-- WILDCARD:*/* => 와일드카드 2개 선언. -->
+   <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" /> <!-- {1}/{2}.jsp => 첫번째 와일드카드{1}는 폴더역할을 하고 두번째는 메인폴더 안의 .jsp를 불러오는 역할. -->
+  </definition>
+  
+</tiles-definitions>

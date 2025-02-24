@@ -13,7 +13,7 @@ public class AddFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/WEB-INF/views/addForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/addForm.tiles").forward(req, resp);
 		// 3개파라미터 활용 db 저장. 목록으로 이동
 		
 	}

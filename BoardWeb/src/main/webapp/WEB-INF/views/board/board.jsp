@@ -1,7 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="includes/header.jsp"></jsp:include>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   ${ "Expression Languge" }
 <p>BoardVO객체의 값 => ${board }</p>
@@ -57,4 +56,3 @@
     		alert("권한을 확인하세요.");
       });
 </script>
-<jsp:include page="includes/footer.jsp"></jsp:include>
