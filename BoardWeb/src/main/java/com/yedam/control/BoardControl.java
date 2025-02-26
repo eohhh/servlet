@@ -10,7 +10,7 @@ import com.yedam.dao.BoardDAO;
 import com.yedam.vo.BoardVO;
 
 public class BoardControl implements Control {
-	
+
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// BoardWeb/board.do?bno=12
