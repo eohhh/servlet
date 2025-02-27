@@ -10,5 +10,7 @@ public interface ReplyMapper {
 	
 	public int insertReply(ReplyVO reply);
 	public List<ReplyVO> replyList(@Param("boardNo") int boardNo, @Param("page") int page);
-	
+	public int replyCount(int boardNo);
+	public ReplyVO selectReply(int replyNo);
+	public int deleteReply(int replyNo);
 }

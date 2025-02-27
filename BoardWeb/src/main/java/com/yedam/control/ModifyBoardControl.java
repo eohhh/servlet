@@ -31,10 +31,10 @@ public class ModifyBoardControl implements Control {
 		board.setContent(content);
 
 //		BoardDAO bdao = new BoardDAO();
-		if (mapper.updateBoard(board) == 1) { // 목록이동.
-			resp.sendRedirect("boardList.do");
+		if (mapper.updateBoard(board) == 1) { 
+			resp.sendRedirect("boardList.do"); // 수정이 완료되면 boardList.do로 이동.
 		} else {
-			System.out.println("처리실패.");
+			System.out.println("처리실패."); // 0값이 입력되면 처리실패.
 		}
 
 	}
