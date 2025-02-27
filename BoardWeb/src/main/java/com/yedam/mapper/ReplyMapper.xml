@@ -14,4 +14,6 @@
 	<select id="replyCount" resultType="int">
 		select count(1) from tbl_reply where board_no = ?
 	</select>
+<select id="">
+</select>
 </mapper>

@@ -35,7 +35,7 @@ public class ModifyBoardControl implements Control {
 			resp.sendRedirect("boardList.do"); // 수정이 완료되면 boardList.do로 이동.
 		} else {
 			System.out.println("처리실패."); // 0값이 입력되면 처리실패.
-		}
+		} //rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
 
 	}
 
