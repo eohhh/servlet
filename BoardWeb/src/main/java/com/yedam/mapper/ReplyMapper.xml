@@ -4,7 +4,12 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yedam.mapper.ReplyMapper">
-
+	
+	<insert id="insertEvent">
+	insert into tbl_calendar(title, start_date, end_date)
+	values(#{tilte}, #{start}, #{end})
+	</insert>
+	
 	<select id="fullData" resultType="map">
 		select title as "title"
 			  ,start_date as "start"
