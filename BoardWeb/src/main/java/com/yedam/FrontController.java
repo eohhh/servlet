@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +21,10 @@ import com.yedam.control.ChartControl;
 import com.yedam.control.ChartData;
 import com.yedam.control.Control;
 import com.yedam.control.DataControl;
+import com.yedam.control.DataTableControl;
+import com.yedam.control.FullCalControl;
+import com.yedam.control.FullData;
+import com.yedam.control.FullInsertControl;
 import com.yedam.control.LoginControl;
 import com.yedam.control.LogoutControl;
 import com.yedam.control.MainControl;
@@ -81,6 +84,14 @@ public class FrontController extends HttpServlet {
 		// 차트.
 		map.put("/chart.do", new ChartControl()); // 차트
 		map.put("/chartData.do", new ChartData());
+		
+		// datatable 관련.
+		map.put("/datatable.do", new DataTableControl());
+		
+		
+		map.put("/full.do", new FullCalControl());
+		map.put("/fullData.do", new FullData()); // 조회.
+		map.put("/fullInsert.do", new FullInsertControl()); //등록
 	}
 
 	@Override

@@ -156,6 +156,7 @@ public class ReplyDAO extends DAO {
 	// 삭제.
 	public boolean deleteReply(int replyNo) {
 		String query = "delete from tbl_reply where reply_no = ?";
+		System.out.println(replyNo);
 		try {
 			psmt = getConnect().prepareStatement(query);
 			psmt.setInt(1, replyNo); // ?에 값 지정.
