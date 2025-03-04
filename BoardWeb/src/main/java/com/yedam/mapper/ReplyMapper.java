@@ -11,6 +11,7 @@ public interface ReplyMapper {
 
 	public int insertReply(ReplyVO reply);
 	public List<ReplyVO> replyList(@Param("boardNo") int boardNo, @Param("page") int page);
+<<<<<<< HEAD
 	public List<ReplyVO> replyListAll(int boardNo);
 	public List<Map<String, Object>> fullData();
 
@@ -24,4 +25,9 @@ public interface ReplyMapper {
 	public int deleteEvent(@Param("title") String title	//
 			, @Param("start") String start	//
 			, @Param("end") String end);
+=======
+	public int replyCount(int boardNo);
+	public ReplyVO selectReply(int replyNo);
+	public int deleteReply(int replyNo);
+>>>>>>> branch 'master' of https://github.com/eohhh/servlet.git
 }
