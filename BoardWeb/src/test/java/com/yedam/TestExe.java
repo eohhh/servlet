@@ -14,7 +14,7 @@ public class TestExe {
 	
 	BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 	
-	SearchVO search = new SearchVO(1, "T", "홍길동");
+	SearchVO search = new SearchVO(1, "T", "홍길동", 0);
 	int row = mapper.getTotalCount(search);
 	System.out.println("건수: " + row);
 	}

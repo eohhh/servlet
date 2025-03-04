@@ -2,8 +2,8 @@ package com.yedam.mapper;
 
 import java.util.List;
 
-import com.yedam.vo.BoardVO;
 import com.yedam.common.SearchVO;
+import com.yedam.vo.BoardVO;
 
 public interface BoardMapper {
 	public int getTotalCount(SearchVO search);
