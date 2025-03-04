@@ -23,7 +23,7 @@ public class BoardListControl implements Control {
 			throws ServletException, IOException {
 		// boardList.do?searchCondition=T&keyword=오늘
 		String page = req.getParameter("page");
-		page = page == null ? "1" : page;
+		page = page == null ? "1" : page; // null이면 page=1로 설정.
 		String sc = req.getParameter("searchCondition");
 		String kw = req.getParameter("keyword");
 		sc = sc == null ? "" : sc; // null값처리.
@@ -39,9 +39,8 @@ public class BoardListControl implements Control {
 //		BoardDAO edao = new BoardDAO();
 //		List<BoardVO> list = edao.selectBoard(search);
 		SqlSession sqlSession = DataSource.getInstance().openSession();
-		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-		List<BoardVO> list = mapper.selectBoard(search);
-
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class); // xml에서 SQL문을 찾아서 자동완성
+		List<BoardVO> list = mapper.selectBoard(search); // search를 검색하면 SQL에서 selectBoard를 찾아 <BoardVO>형식으로 list에 담아준다 
 		req.setAttribute("list", list);
 
 		// 페이징.
