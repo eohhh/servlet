@@ -55,7 +55,7 @@
 	values(#{replyNo}, #{reply}, #{replyer}, #{boardNo})
   </insert>
 
-	<insert id = "insertReply" parameterType="ReplyVO">
+	<insert id = "insertReply" parameterType="reply">
 		<selectKey keyProperty="reply_no" resultType="int" order="BEFORE">
 			select reply_seq.nextval from dual
 		</selectKey>
@@ -65,6 +65,4 @@
 	<select id="replyCount" resultType="int">
 		select count(1) from tbl_reply where board_no = ?
 	</select>
-<select id="">
-</select>
 </mapper>
